@@ -5,7 +5,7 @@ class TextForm extends StatefulWidget {
   Icon? iconPrefix;
   Text? changelabel;
   TextEditingController? controller;
-  TextForm({Key? key, this.textlabel,this.iconPrefix,this.changelabel,this.controller}) : super(key: key);
+  TextForm({Key? key,this.textlabel,this.iconPrefix,this.changelabel,this.controller}) : super(key: key);
 
   @override
   State<TextForm> createState() => _TextFormState();
@@ -23,6 +23,7 @@ class _TextFormState extends State<TextForm> {
           }
           return null;
         },
+
          controller: widget.controller,
         enableIMEPersonalizedLearning: true,
         // enabled: false,
@@ -36,5 +37,11 @@ class _TextFormState extends State<TextForm> {
         ),
       ),
     );
+  }
+  bool change = true;
+  void changeIcon() {
+    setState(() {
+      change = !change;
+    });
   }
 }
