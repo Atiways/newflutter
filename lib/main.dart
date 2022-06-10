@@ -1,5 +1,6 @@
 import 'package:final_form/constant/colors.dart';
 import 'package:final_form/screens/home.dart';
+import 'package:final_form/screens/onboarding.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const Home(),
+      home: const Onboarding(),
       debugShowCheckedModeBanner: false,
     );
   }
