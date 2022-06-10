@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
                     ElevatedButton(onPressed: login, child: Text("Login")),
                   ],
                 )),
-            SizedBox(height: 290,),
+            SizedBox(height: MediaQuery.of(context).size.height*.4,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
