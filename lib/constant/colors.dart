@@ -9,5 +9,6 @@ class Mycolor{
   static const Color purple = Colors.purple;
   static const Color grey = Colors.grey;
   static const Color black = Colors.black;
+  static const Color pink = Colors.pink;
   static const Color deepBlue = Color.fromARGB(255,4,81,144);
 }

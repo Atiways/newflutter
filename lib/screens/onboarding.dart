@@ -2,6 +2,9 @@ import 'package:final_form/constant/colors.dart';
 import 'package:final_form/constant/image.dart';
 import 'package:final_form/constant/string_fata.dart';
 import 'package:final_form/constant/values.dart';
+import 'package:final_form/screens/home.dart';
+import 'package:final_form/screens/registration.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding extends StatefulWidget {
@@ -54,9 +57,10 @@ class _OnboardingState extends State<Onboarding> {
                       image: data[index]['image']))),
           Positioned(
               bottom: Values.screenHeight * .15,
-              left: Values.screenWidth * .45,
-              child: Row(
+              left: Values.screenWidth  *.45,
+              child:currentPage==data.length-1? button(): Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children:
                     List.generate(data.length, (index) => dot(index)),
               ))
@@ -106,11 +110,54 @@ class _OnboardingState extends State<Onboarding> {
 
   Padding dot(index) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 2.0),
       child: CircleAvatar(
         backgroundColor: index == currentPage ? Mycolor.blue : Mycolor.grey,
         radius: index == currentPage? 5:3,
       ),
     );
   }
+  Center button(){
+    return Center(
+      child:Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> register()));
+            }, child: Text("Let's Start"),
+              style: ElevatedButton.styleFrom(
+                  primary: Mycolor.pink,
+                  onPrimary: Mycolor.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32)
+                  )
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));
+            }, child: Text("Log in",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+              style: ElevatedButton.styleFrom(
+                  primary: Mycolor.grey,
+                  onPrimary: Mycolor.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32)
+                  )
+              ),
+            ),
+          ),
+        ],
+      ) ,
+    );
+  }
+
 }
